@@ -1,10 +1,14 @@
+/*
+This Project use NodeMCU v.3 as a microcontroller but any esp32 would work for the project. I use 1 UART for LCD and 1 I2C for Huskylens. Huskylens is AI module that can easily be configured.
+*/
+
 #include "HUSKYLENS.h"
 #include "Wire.h"
 #include <TridentTD_LineNotify.h>
 #include <SoftwareSerial.h>
 #include <TimeLib.h> 
 
-#define SSID        "--------------------"
+#define SSID        "--------------------"  // generate via line
 #define PASSWORD    "--------------------"
 #define LINE_TOKEN  "--------------------"
 
@@ -53,10 +57,6 @@ LCD.write(128); //light level for off.
 delay(LCDdelay);
 }
 
-void serCommand() 
-{ //a general function to call the command flag for issuing all other commands 
-LCD.write(0xFE);
-}
                             
         
 void setup()

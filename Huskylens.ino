@@ -8,17 +8,17 @@ This Project use NodeMCU v.3 as a microcontroller but any esp32 would work for t
 #include <SoftwareSerial.h>
 #include <TimeLib.h> 
 
-#define SSID        "--------------------"  // generate via line
-#define PASSWORD    "--------------------"
-#define LINE_TOKEN  "--------------------"
+#define SSID        "--------------------"  // name of the WiFi
+#define PASSWORD    "--------------------" // WiFi password
+#define LINE_TOKEN  "--------------------" // generate via line
 
 
 #define txPin 2
 SoftwareSerial LCD = SoftwareSerial(0, txPin);
 
-const int voice 4;
-const int LCDdelay=10;
-const int mag 3;
+const int voice = 4;
+const int LCDdelay = 10;
+const int mag = 3;
 HUSKYLENS huskylens;
 
 void setname(String newname,uint8_t ID)
@@ -28,6 +28,7 @@ void setname(String newname,uint8_t ID)
      Serial.println(F("Set customname failed!")); 
      delay(100);  
    }
+}
 
 void lcdPosition(int row, int col) 
 {
@@ -50,7 +51,8 @@ LCD.write(157); //light level.
 delay(LCDdelay);
 }
             
-void backlightOff() {
+void backlightOff() 
+{
 //turns off the backlight
 LCD.write(0x7C); //command flag for backlight stuff
 LCD.write(128); //light level for off.

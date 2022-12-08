@@ -32,31 +32,31 @@ void setname(String newname,uint8_t ID)
 
 void lcdPosition(int row, int col) 
 {
-LCD.write(0xFE); //command flag
-LCD.write((col + row*64 + 128));
+  LCD.write(0xFE); //command flag
+  LCD.write((col + row*64 + 128));
 }  
     
 void clearLCD()
 {
-LCD.write(0xFE); //command flag
-LCD.write(0x01); //clear command.
-delay(LCDdelay);
+  LCD.write(0xFE); //command flag
+  LCD.write(0x01); //clear command.
+  delay(LCDdelay);
 }
                       
 void backlightOn()
 {
-//turns on the backlight
-LCD.write(0x7C); //command flag for backlight stuff
-LCD.write(157); //light level.
-delay(LCDdelay);
+  //turns on the backlight
+  LCD.write(0x7C); //command flag for backlight stuff
+  LCD.write(157); //light level.
+  delay(LCDdelay);
 }
             
 void backlightOff() 
 {
-//turns off the backlight
-LCD.write(0x7C); //command flag for backlight stuff
-LCD.write(128); //light level for off.
-delay(LCDdelay);
+  //turns off the backlight
+  LCD.write(0x7C); //command flag for backlight stuff
+  LCD.write(128); //light level for off.
+  delay(LCDdelay);
 }
 
                             
@@ -84,13 +84,13 @@ void setup()
 
   pinMode(sound,OUTPUT);
   
-pinmode(mag,OUTPUT);
-pinMode(txPin, OUTPUT);
-LCD.begin(9600);
-backlightOn() ;
-clearLCD();
-lcdPosition(0,0);
-digitalWrite(mag,HIGH);
+  pinMode(mag,OUTPUT);
+  pinMode(txPin, OUTPUT);
+  LCD.begin(9600);
+  backlightOn() ;
+  clearLCD();
+  lcdPosition(0,0);
+  digitalWrite(mag,HIGH);
         
 }
 
@@ -115,12 +115,12 @@ void loop
         }
       }
     digitalWrite(voice,LOW);
-    digitalWrite(mag,HIGH);        
+    digitalWrite(mag,HIGH); 
+    clearLCD();       
   }
   else 
   {
     LCD.print("face recognition work attend check list");
-    clearLCD();
   }
   
 }
